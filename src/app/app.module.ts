@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { CarteComponent } from './carte/carte.component';
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './details/details.component';
-import { Login_ws } from '../services/login_ws';
+import { Login_ws } from './services/login_ws';
 
 
 @NgModule({
