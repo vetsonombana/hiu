@@ -1,0 +1,37 @@
+<div class="card" style ="width :500px;height:400px;margin-left: 35%;">
+    <article class="card-body">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/home">
+              <img src="./assets/img/ariary.png" width="45" height="45" class="d-inline-block align-top" alt="" />
+              Ariary bank
+            </a>
+        </nav>
+      <hr>
+      <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
+      <form #user = "ngForm" (ngSubmit) = "connecter(user.value)" >
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input  class="form-control" ngModel  placeholder="Email or login" type = "email" name="email">
+      </div> <!-- input-group.// -->
+      </div> <!-- form-group// -->
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+         </div>
+          <input class="form-control" ngModel placeholder="******" type="password" name="password">
+      </div> <!-- input-group.// -->
+      </div> <!-- form-group// -->
+      <div class="form-group">
+        <div class ="courteexplication">  {{(msg)}}</div>
+        <br>
+      <button type="submit"  class="btn btn-outline-dark" style="margin-left : 45%"> Login  </button>
+      </div> <!-- form-group// -->
+      <p><a style="margin-left : 65%" href="#" class="btn btn-light" >Forgot password?</a></p>
+      </form>
+    </article>
+    </div> <!-- card.// -->
+    
