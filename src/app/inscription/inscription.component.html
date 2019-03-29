@@ -1,0 +1,55 @@
+<div style="background-image: url('./assets/img/bg-img/insc.png');background-repeat: no-repeat">
+  <div class="container">
+          <div class="row">
+              <!-- <div class="col-md-5" > -->
+                  <!-- <section style="padding-top:35%">
+                          <img src="assets/img/logo.png" alt=""/>
+                  </section>  -->
+              <!-- </div> -->
+              <style>
+                  .log{
+                  background-color: white;
+                  margin-top: 20%;
+                  padding-top:2%;
+                  padding-right:5%;
+                  padding-left:5%;
+                  border-radius: 10px;
+                  opacity: 0.75;
+                  }
+              </style>
+              <div class="col-md-5">
+                  <div class="log">
+                      <div>
+                       
+                              <img src="./assets/img/avatar2.png" width="100" />
+                              <h3>S'inscrire</h3>
+                        
+                      </div>
+                      <form class="form-horizontal" #inscrire = "ngForm" (ngSubmit) = "inscription(inscrire.value)">     
+                          <div class="contenu">
+                              <div>
+                                  <label><img src="./assets/img/mail.png" width="16" />  Utilisateur</label><br>
+                                  <input style="width:100%" name ="email" type="username" ngModel  class="form-control">
+                              </div><br>
+                              <div>
+                                  <label><img src="./assets/img/mdp.png" width="17" />  Mot de passe</label><br>
+                                  <input style="width:100%" name ="password" ngModel type="password" class="form-control">
+                              </div><br>
+                              <div>
+                                  <label><img src="./assets/img/mdp.png" width="17" />  Confirmer votre mot de passe</label><br>
+                                  <input style="width:100%" name ="password2" ngModel type="password" class="form-control">
+                              </div><br>
+                              <div padding>
+                                  <input type="checkbox" ngModel name="admin" > Naviguer en tant qu'administrateur<br>
+                                  <div class ="courteexplication">{{(msg)}}</div>
+                                  <button style="width:100%" class="btn  btn-primary" button block><img src="./assets/img/insc.png" width="20" /><span style="margin-left:1%">S'inscrire</span></button>    
+                              </div>
+                              <hr>
+                          </div>
+                          <hr>
+                      </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>                        

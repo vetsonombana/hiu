@@ -153,6 +153,11 @@ ul {
   padding-right: 0;
   line-height: 32px; }
 
+.courteexplication {
+  font-size: 11px;
+  font-style: italic;
+  color:  #FFA07A; }
+
 .bg-transparent {
   background-color: transparent !important; }
 

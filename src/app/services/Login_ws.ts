@@ -8,11 +8,12 @@ import { Injectable } from '@angular/core';
 export class Login_ws {
     constructor(private http: Http) {}
     public connecter(id: string , mdp: string): Promise<any> {
-        const url = 'http://thawing-tor-95959.herokuapp.com/ws/client/login';
-        const formdata = new FormData();
-        formdata.append('identifiant', id);
-        formdata.append('password', mdp);
-        return this.http.post(url, formdata).toPromise().then(this.toJson).catch(this.handleError);
+        let url = 'https://wsituhiu.herokuapp.com/api/login?user='+id+'&pass='+mdp+'';
+        console.log(url);
+        /*const formdata = new FormData();
+        formdata.append('user', id);
+        formdata.append('mdp', mdp);*/
+        return this.http.get(url).toPromise().then(this.toJson).catch(this.handleError);
       }
       public toJson(response: any) {
         return response.json() || {};

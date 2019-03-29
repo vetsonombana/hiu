@@ -9,6 +9,10 @@ import { CarteComponent } from './carte/carte.component';
 import { LoginComponent } from './login/login.component';
 import { DetailsComponent } from './details/details.component';
 import { Login_ws } from './services/Login_ws';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { LogoutComponent } from './logout/logout.component';
+import { InscriptionComponent } from './inscription/inscription.component';
+import { Inscription_Ws } from './services/Inscription_Ws';
 
 
 @NgModule({
@@ -17,15 +21,18 @@ import { Login_ws } from './services/Login_ws';
     AccueilComponent,
     CarteComponent,
     LoginComponent,
-    DetailsComponent
+    DetailsComponent,
+    LogoutComponent,
+    InscriptionComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [ Login_ws, ],
+  providers: [ Login_ws,Inscription_Ws ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

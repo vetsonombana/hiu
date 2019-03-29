@@ -20,23 +20,25 @@
               <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
             </div>
 
-            <!-- Nav Start -->
-            <div class="classynav">
-              <ul id="nav">
-                <li class="current-item"><a href="./index.html">Accueil</a></li>
-              </ul>
+     <!-- Nav Start -->
+     <div class="classynav">
+        <ul id="nav">
+            <li class="current-item"><a href="./index.html">Home</a>
+        </ul>
 
-              <!-- Login / Register -->
-              <div class="login-register-btn mx-3">
-                <a href="#">Login <span>/ Register</span></a>
-              </div>
-
-              <!-- Search Icon -->
-              <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-                <i class="icon_search"></i>
-              </div>
+        <!-- Login / Register -->
+        <div class="login-register-btn mx-3">
+            <a href="/login">Login <span>/ Register</span></a>
+        </div>
+        <div class="login-register-btn mx-3">
+                <a routerLink="/logout">Logout</a>
             </div>
-            <!-- Nav End -->
+        <!-- Search Icon -->
+        <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+            <i class="icon_search"></i>
+        </div>
+    </div>
+    <!-- Nav End -->
 
           </div>
         </nav>
@@ -82,7 +84,7 @@
       </div>
       <h5>A propos terrain</h5>
       <p id="aPropos"></p>
-      <a href="details.html">Plus de détails</a>
+      <a href="/details">Plus de détails</a>
     </div>
   </div>
   <!-- modal fin -->

@@ -1,37 +1,57 @@
-<div class="card" style ="width :500px;height:400px;margin-left: 35%;">
-    <article class="card-body">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/home">
-              <img src="./assets/img/ariary.png" width="45" height="45" class="d-inline-block align-top" alt="" />
-              Ariary bank
-            </a>
-        </nav>
-      <hr>
-      <h4 class="card-title text-center mb-4 mt-1">Sign in</h4>
-      <form #user = "ngForm" >
-      <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-         </div>
-        <input  class="form-control" ngModel  placeholder="Email or login" type = "email" name="email">
-      </div> <!-- input-group.// -->
-      </div> <!-- form-group// -->
-      <div class="form-group">
-      <div class="input-group">
-        <div class="input-group-prepend">
-            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-         </div>
-          <input class="form-control" ngModel placeholder="******" type="password" name="password">
-      </div> <!-- input-group.// -->
-      </div> <!-- form-group// -->
-      <div class="form-group">
-        <div class ="courteexplication">  </div>
-        <br>
-      <button type="submit"  class="btn btn-outline-dark" style="margin-left : 45%"> Login  </button>
-      </div> <!-- form-group// -->
-      <p><a style="margin-left : 65%" href="#" class="btn btn-light" >Forgot password?</a></p>
-      </form>
-    </article>
-    </div> <!-- card.// -->
-    
+<div style="background-image: url('./assets/img/bg-img/insc.png');background-repeat: no-repeat">
+  <div class="container">
+          <div class="row">
+              <!-- <div class="col-md-5" > -->
+                  <!-- <section style="padding-top:35%">
+                          <img src="assets/img/logo.png" alt=""/>
+                  </section>  -->
+              <!-- </div> -->
+              <style>
+                  .log{
+                  background-color: white;
+                  margin-top: 20%;
+                  padding-top:2%;
+                  padding-right:5%;
+                  padding-left:5%;
+                  border-radius: 10px;
+                  opacity: 0.75;
+                  }
+              </style>
+              <div class="col-md-5">
+                  <div class="log">
+                      <div>
+                       
+                              <img src="./assets/img/avatar2.png" width="100" />
+                              <h3>Se connecter</h3>
+                        
+                      </div>
+                      <form class="form-horizontal" #user = "ngForm" (ngSubmit) = "connecter(user.value)">     
+                          <div class="contenu">
+                              <div>
+                                  <label><img src="./assets/img/mail.png" width="16" />  Utilisateur</label><br>
+                                  <input style="width:100%" type="username" ngModel name ="email" class="form-control">
+                              </div><br>
+                              <div>
+                                  <label><img src="./assets/img/mdp.png" width="17" />  Mot de passe</label><br>
+                                  <input style="width:100%" name ="password" ngModel type="password" class="form-control">
+                              </div><br>
+                              <div padding>
+                                  <div class ="courteexplication">{{(msg)}}</div>
+                                  <button style="width:100%" class="btn  btn-primary" button block>Se connecter</button>  
+                              </div>
+                          </div>
+                          <hr>
+                      </form>
+                      <form class="form-horizontal"  (ngSubmit) = "redirect()">   
+                      <div class="contenu">
+                      <div id="signin" padding>
+                          <p style="text-align: center">Si vous n'avez pas de compte, cliquer sur <span style="color:#488aff" >S'inscrire</span></p>
+                          <button style="width:100%" class="btn  btn-primary" button block><img src="./assets/img/insc.png" width="20" /><span style="margin-left:1%">S'inscrire</span></button>  
+                      </div>
+                    </div>
+                    </form>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>                        

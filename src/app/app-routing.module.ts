@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { CarteComponent } from './carte/carte.component';
 import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { InscriptionComponent } from './inscription/inscription.component';
 
 const routes: Routes = [
   {path : '', redirectTo: 'accueil', pathMatch: 'full'},
   {path: 'accueil', component : AccueilComponent},
   {path: 'carte', component : CarteComponent},
   {path: 'login', component : LoginComponent},
+  {path: 'logout', component : LogoutComponent},
+  {path: 'inscrire', component : InscriptionComponent},
 ];
 @NgModule({
   declarations: [],
