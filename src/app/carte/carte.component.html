@@ -1,52 +1,111 @@
-<header class="header-area" style="background-color:#e6f2fd">
+
+  <link  href="https://unpkg.com/leaflet-geosearch@latest/assets/css/leaflet.css" rel="stylesheet" />
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+<script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet/0.0.1-beta.5/esri-leaflet.js"></script>
+<script src="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdn-geoweb.s3.amazonaws.com/esri-leaflet-geocoder/0.0.1-beta.5/esri-leaflet-geocoder.css">
+  
+
+<!-- <div id="preloader">
+    <div class="wrapper">
+        <div class="cssload-loader"></div>
+    </div>
+</div> -->
+
+<!-- ***** Top Search Area Start ***** -->
+<div class="top-search-area">
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Close Button -->
+                    <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    <!-- Form -->
+                    <!-- <form action="index.html" method="post"> -->
+                        <div class="row">
+                                <div class="col">
+                                    <div class="form-group">
+                                        <label>Lieu</label><br>
+                                        <input type="text" name="lieu" [(ngModel)]="critere.lieu" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Superficie min</label><br>
+                                        <input type="text" name="min" [(ngModel)]="critere.min" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Superficie max</label><br>
+                                        <input type="text" name="max" [(ngModel)]="critere.max" class="form-control">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Type</label>
+                                        <select name="type" [(ngModel)]="critere.type" class="form-control">
+                                            <option value="">Tout</option>
+                                            <option value="2">Privée</option>
+                                            <option value="1">Société</option>
+                                            <option value="3">A vendre</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="submit" class="btn btn-primary" (click)="advancedSearch()" value="Rechercher"/>
+                                    </div>
+                                </div>
+                            </div>
+                    <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- ***** Header Area Start ***** -->
+<header class="header-area">
     <!-- Main Header Start -->
     <div class="main-header-area">
-      <div class="classy-nav-container breakpoint-off">
-        <!-- Classy Menu -->
-        <nav class="classy-navbar justify-content-between" id="uzaNav">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="uzaNav">
 
-          <!-- Logo -->
-          <a class="nav-brand" href="index.html"><img src="./assets/img/core-img/logo.png" alt=""></a>
+                <!-- Logo -->
+                <a class="nav-brand" href="index.html"><img src="assets/img/logo.png" alt="" width="125px"></a>
 
-          <!-- Navbar Toggler -->
-          <div class="classy-navbar-toggler">
-            <span class="navbarToggler"><span></span><span></span><span></span></span>
-          </div>
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
 
-          <!-- Menu -->
-          <div class="classy-menu">
-            <!-- Menu Close Button -->
-            <div class="classycloseIcon">
-              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
-            </div>
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
 
-     <!-- Nav Start -->
-     <div class="classynav">
-        <ul id="nav">
-            <li class="current-item"><a href="./index.html">Home</a>
-        </ul>
-
-        <!-- Login / Register -->
-        <div class="login-register-btn mx-3">
-            <a href="/login">Login <span>/ Register</span></a>
-        </div>
-        <div class="login-register-btn mx-3">
-                <a routerLink="/logout">Logout</a>
-            </div>
-        <!-- Search Icon -->
-        <div class="search-icon" data-toggle="modal" data-target="#searchModal">
-            <i class="icon_search"></i>
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="current-item"><a href="/accueil">Accueil</a></li>
+                        </ul>
+                        <!-- Login / Register -->
+                            <div class="login-register-btn mx-3">
+                                <a href="/carte">Application</a>
+                            </div>
+                            <div class="login-register-btn mx-3">
+                                <a href="{{ hreflogout }}" ><img src="assets/img/avatar2.png" style="width: 25px;height: 25px;margin-right:5px;margin-bottom:5px;" />  {{ user }} <span>/ Se Déconnecter</span> </a>
+                            </div>
+                        <!-- Search Icon -->
+                        <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                            <i class="icon_search"></i>
+                        </div>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
         </div>
     </div>
-    <!-- Nav End -->
-
-          </div>
-        </nav>
-      </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
+</header>
+<!-- ***** Header Area End ***** -->
   <section class="uza-about-us-area">
     <div class="container">
       <div class="row">
@@ -55,18 +114,60 @@
             <div class="col-md-4">
               <h2>Tracée du terrain</h2>
               <!-- <form action="" method="POST"> -->
-                <label>Coordonnées des bornes</label><br>
-                <input type="text" id="coor" class="form-control" style="width:100%;cursor:not-allowed" disabled/><br>
-                <button class="btn btn-sm btn-success" style="width:49%" onclick="enregistrer()">Enregistrer</button>
+                <label>Coordonnées des bornes</label>
+                <input type="text" id="coor" name="coordonnee" [(ngModel)]="coordonnee" class="form-control" style="width:100%;cursor:not-allowed" disabled/>
+                <button class="btn btn-sm btn-success" style="width:49%" (click)="enregister()">Enregistrer</button>
                 <button class="btn btn-sm btn-danger" style="background-color: #f12c2c;width:49%" onclick="effacer()">Effacer</button>
               <!-- </form> -->
               <p>
-                Vous pouvez également finir votre traçage<br>
-                <button class="btn btn-sm btn-primary" style="width:100%" onclick="finir()">Finir traçage</button>
+                Vous pouvez également finir votre traçage
+                <button class="btn btn-sm btn-primary" style="width:100%" (click)="finir()">Finir traçage</button>
               </p>
               <div id="desc"></div>	
+              <div class="row" *ngIf="montrerFormulaire">
+                  <div style="margin-left:3%;">
+                      <h1>Description terrain </h1>
+                      <div class="form-group">
+                        <label>Propriétaire du terrain</label>
+                        <input type="text" name="proprietaire" [(ngModel)]="proprietaire"  class="form-control" style="width:100%">
+                      </div>
+                      <div class="form-group">
+                        <label>Nom propriété</label>
+                        <input type="text" name="propriete" [(ngModel)]="propriete" class="form-control" style="width:100%"/>
+                      </div>
+                      <div class="form-group">
+                        <label>Lieu</label>
+                        <input type="text" name="lieu" [(ngModel)]="lieu" class="form-control" style="width:100%"/>
+                      </div>
+                      <div class="form-group">
+                        <label>Description</label>
+                        <input type="text" name="description" [(ngModel)]="description" class="form-control" style="width:100%"/>
+                      </div>
+                      <div class="form-group">    
+                        <label>Superficie</label>
+                        <input type="text" name="superficie" [(ngModel)]="superficie" class="form-control" style="width:100%"/>
+                      </div>
+                      <div class="form-group">
+                        <label>Commune</label>
+                        <input type="text" name="commune" [(ngModel)]="commune" class="form-control" style="width:100%"/>
+                      </div>
+                      <div class="from-group">
+                        <label>Titre</label>
+                        <input type="text" name="titre" [(ngModel)]="titre" class="form-control" style="width:100%"/>
+                      </div><br>
+                      <div class="from-group">
+                        <label>Domaine</label>
+                        <select name="type" [(ngModel)]="type" class="form-control">
+                        <option value="2" selected>Privée</option>
+                        <option value="1">Société</option>
+                        <option value="3">A vendre</option>
+                        </select><br>
+                        <button class="btn btn-sm btn-primary" style="width:100%" (click)="sendData()">Valider</button>
+                      </div>
+                  </div>
+                </div>
             </div>
-            <div id="map" class="col-md-8" style="height:500px">
+            <div id="map" class="col-md-8" style="height:1000px">
               <!-- Ici s'affichera la carte -->
             </div>
             <!-- <div class='pointer'><< Click search button</div> -->
@@ -89,271 +190,44 @@
   </div>
   <!-- modal fin -->
 
-  <!-- ***** Services Area Start ***** -->
-  <section class="uza-services-area section-padding-80-0">
-    <div class="container">
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center">
-            <h2>Nos services clients</h2>
-          </div>
-        </div>
-      </div>
-
-      <div class="row">
-
-        <!-- Single Service Area -->
-        <div class="col-12 col-lg-4">
-          <div class="single-service-area mb-80">
-            <!-- Service Icon -->
-            <div class="service-icon">
-              <i class="icon_cone_alt"></i>
-            </div>
-            <h5>Chercher les terrains</h5>
-            <p>Chercher les terrains disponibles a Madagascar, trouver aussi vos terrains</p>
-          </div>
-        </div>
-
-        <!-- Single Service Area -->
-        <div class="col-12 col-lg-4">
-          <div class="single-service-area mb-80">
-            <!-- Service Icon -->
-            <div class="service-icon">
-              <i class="icon_piechart"></i>
-            </div>
-            <h5>ded</h5>
-            <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata.</p>
-          </div>
-        </div>
-
-        <!-- Single Service Area -->
-        <div class="col-12 col-lg-4">
-          <div class="single-service-area mb-80">
-            <!-- Service Icon -->
-            <div class="service-icon">
-              <i class="icon_easel"></i>
-            </div>
-            <h5>Marketing Social</h5>
-            <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata.</p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-  <!-- ***** Services Area End ***** -->
-
-  <!-- ***** Portfolio Area Start ***** -->
-  <section class="uza-portfolio-area section-padding-80">
-    <div class="container">
-      <div class="row">
-        <!-- Section Heading -->
-        <div class="col-12">
-          <div class="section-heading text-center">
-            <h2>Guide d'utilisation</h2>
-            <p>Suivez les photos</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <!-- Portfolio Slides -->
-        <div class="portfolio-sildes owl-carousel">
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/3.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/4.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/5.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/6.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/5.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-          <!-- Single Portfolio Slide -->
-          <div class="single-portfolio-slide">
-            <img src="./assets/img/bg-img/6.jpg" alt="">
-            <!-- Overlay Effect -->
-            <div class="overlay-effect">
-              <h4>Digital Marketing</h4>
-              <p>At vero eos et accusam et justo duo dolores et ea rebum. Stet gubergren no sea takimata sanctus est</p>
-            </div>
-            <!-- View More -->
-            <div class="view-more-btn">
-              <a href="#"><i class="arrow_right"></i></a>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-    <!-- Client Feedback Area Start -->
-
-    <!-- Border -->
-    <div class="container">
-      <div class="border-line"></div>
-    </div>
-
-    <!-- Background Curve -->
-    <div class="portfolio-bg-curve">
-      <img src="./assets/img/core-img/curve-3.png" alt="">
-    </div>
-  </section>
-  <!-- ***** Portfolio Area End ***** -->
-
-  <!-- ***** Footer Area Start ***** -->
   <footer class="footer-area section-padding-80-0">
     <div class="container">
       <div class="row justify-content-between">
 
         <!-- Single Footer Widget -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <div class="single-footer-widget mb-80">
-            <!-- Widget Title -->
-            <h4 class="widget-title">Contact Us</h4>
+            <div class="single-footer-widget mb-80">
+                <!-- Widget Title -->
+                <h4 class="widget-title">Contacter-nous</h4>
 
-            <!-- Footer Content -->
-            <div class="footer-content mb-15">
-              <h3>(+65) 1234 5678</h3>
-              <p>40 Baria Sreet 13/2 NY City, US <br> hello.colorlib@gmail.com</p>
+                <!-- Footer Content -->
+                <div class="footer-content mb-15">
+                    <h3 style="font-size:20px">(+261) 32 69 864 11</h3>
+                    <p>II 4 C Andoharanofotsy<br> ITSmart@gmail.com</p>
+                </div>
             </div>
-            <p class="mb-0">Mon - Fri: 9:00 - 19:00 <br>
-              Closed on Weekends</p>
-          </div>
         </div>
 
         <!-- Single Footer Widget -->
         <div class="col-12 col-sm-6 col-lg-3">
-          <div class="single-footer-widget mb-80">
-            <!-- Widget Title -->
-            <h4 class="widget-title">Quick Link</h4>
+            <div class="single-footer-widget mb-80">
+                <!-- Widget Title -->
+                <h4 class="widget-title">A Propos</h4>
+                <p>IT Smart: étudiant à IT University </p>
 
-            <!-- Nav -->
-            <nav>
-              <ul class="our-link">
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Contact Us</a></li>
-                <li><a href="#">Forum Registeration</a></li>
-                <li><a href="#">Forum Sign In</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="single-footer-widget mb-80">
-            <!-- Widget Title -->
-            <h4 class="widget-title">Resources</h4>
-
-            <!-- Nav -->
-            <nav>
-              <ul class="our-link">
-                <li><a href="#">Customer Support</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Media &amp; Press</a></li>
-                <li><a href="#">Our Team</a></li>
-                <li><a href="#">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-        </div>
-
-        <!-- Single Footer Widget -->
-        <div class="col-12 col-sm-6 col-lg-3">
-          <div class="single-footer-widget mb-80">
-            <!-- Widget Title -->
-            <h4 class="widget-title">About Us</h4>
-            <p>Integer vehicula mauris libero, at molestie eros imperdiet sit amet.</p>
-
-            <!-- Copywrite Text -->
-            <div class="copywrite-text mb-30">
-              <p>&copy; Copyright 2018 <a href="#">Colorlib</a>.</p>
+                <!-- Copywrite Text -->
+                <div class="copywrite-text mb-30">
+                    <p>&copy; Copyright 2019 <a href="#"> IT Smart</a>.</p>
+                </div>
+               
             </div>
-
-            <!-- Social Info -->
-            <div class="footer-social-info">
-              <a href="#" class="facebook" data-toggle="tooltip" data-placement="top" title="Facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="twitter" data-toggle="tooltip" data-placement="top" title="Twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="pinterest" data-toggle="tooltip" data-placement="top" title="Pinterest"><i class="fa fa-pinterest"></i></a>
-              <a href="#" class="instagram" data-toggle="tooltip" data-placement="top" title="Instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="youtube" data-toggle="tooltip" data-placement="top" title="YouTube"><i class="fa fa-youtube-play"></i></a>
-            </div>
-          </div>
         </div>
-
       </div>
-  
-    <div class="row" style="margin-bottom: 30px;">
-          
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-    Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-      </div>
+      <div class="row" style="margin-bottom: 30px;">
+
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+          Copyright &copy;<script>2019</script> Tout droit réservé | <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#"> IT Smart</a>
+          <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                      </div>
     </div>
   </footer>

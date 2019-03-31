@@ -1,0 +1,30 @@
+methode GET
+
+LOGIN
+lien=> https://wsituhiu.herokuapp.com/api/login
+parametres=> String user, String pass;
+
+
+SIGNUP
+lien=> https://wsituhiu.herokuapp.com/api/signup
+parametres=>String user, String mdp, int profil
+
+GET ALL TERRAIN
+lien=> https://wsituhiu.herokuapp.com/api/get-all-terrain
+
+INSERTION TERRAIN
+lien=> https://wsituhiu.herokuapp.com/api/insertion-terrain
+parametres=>
+String lieu, 
+String description,
+String coordonnee,
+String proprietaire,
+int type,
+String nompropriete, 
+String commune, 
+int numtitre,
+double superficie
+
+RECHERCHE MULTI CRITERES
+lien=> https://wsituhiu.herokuapp.com/api/find-advanced
+parametres=>int numtitre, int type, String lieuTerrain, double superficiemin, double superficiemax

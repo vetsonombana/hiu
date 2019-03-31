@@ -1,3 +1,90 @@
+<div id="preloader">
+    <div class="wrapper">
+        <div class="cssload-loader"></div>
+    </div>
+</div>
+
+<!-- ***** Top Search Area Start ***** -->
+<div class="top-search-area">
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <!-- Close Button -->
+                    <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                    <!-- Form -->
+                    <form action="index.html" method="post">
+                        <h3 style="font-size:22px"><img src="assets/img/down/rec.png" alt="" width="22px"> Recherche multicritère</h3>
+                        <label>Lieu</label><br>
+                        <input type="text" name="lieu" class="form-control"><br>
+                        <label>Superficie min</label><br>
+                        <input type="text" name="min" class="form-control"><br>
+                        <label>Superficie max</label><br>
+                        <input type="text" name="max" class="form-control"><br>
+                        <label>Type</label><br>
+                        <select name="type" class="form-control">
+                            <option>Tout</option>
+                            <option>Privée</option>
+                            <option>Société</option>
+                            <option>A vendre</option>
+                        </select>
+                        <br>
+                        <input type="submit" style="background-color:#1583e9;color:white;font-size:15px;" value="Rechercher">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="uzaNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="index.html"><img src="assets/img/logo.png" alt="" width="125px"></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="current-item"><a href="/accueil">Accueil</a></li>
+                        </ul>
+                        <!-- Login / Register -->
+                            <!-- <div class="login-register-btn mx-3">
+                                <a href="DeconnectionController"><img src="assets/img/avatar2.png" style="width: 25px;height: 25px;margin-right:5px;margin-bottom:5px;" /><%=session.getAttribute("username")%><spam>/ Se Déconnecter</spam></a>
+                            </div> -->
+                            <div class="login-register-btn mx-3">
+                                <a href="/login">Se connecter<span>/ S'inscrire</span></a>
+                            </div>
+                        <!-- Search Icon -->
+                        <!-- <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                            <i class="icon_search"></i>
+                        </div> -->
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
 <div style="background-image: url('./assets/img/bg-img/insc.png');background-repeat: no-repeat">
   <div class="container">
           <div class="row">
@@ -19,11 +106,9 @@
               </style>
               <div class="col-md-5">
                   <div class="log">
-                      <div>
-                       
-                              <img src="./assets/img/avatar2.png" width="100" />
-                              <h3>Se connecter</h3>
-                        
+                      <div style="text-align: center">
+                          <img src="./assets/img/avatar2.png" width="100" />
+                          <h3>Se connecter</h3>
                       </div>
                       <form class="form-horizontal" #user = "ngForm" (ngSubmit) = "connecter(user.value)">     
                           <div class="contenu">
@@ -43,6 +128,7 @@
                           <hr>
                       </form>
                       <form class="form-horizontal"  (ngSubmit) = "redirect()">   
+                            <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }" ></ngx-loading>
                       <div class="contenu">
                       <div id="signin" padding>
                           <p style="text-align: center">Si vous n'avez pas de compte, cliquer sur <span style="color:#488aff" >S'inscrire</span></p>

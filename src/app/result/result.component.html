@@ -1,0 +1,165 @@
+
+<!-- ***** Top Search Area Start ***** -->
+<div class="top-search-area">
+    <!-- Search Modal -->
+    <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                        <div class="modal-body">
+                            <!-- Close Button -->
+                            <button type="button" class="btn close-btn" data-dismiss="modal"><i class="fa fa-times"></i></button>
+                            <!-- Form -->
+                            <!-- <form action="index.html" method="post"> -->
+                                <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label>Lieu</label><br>
+                                                <input type="text" name="lieu" [(ngModel)]="critere.lieu" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Superficie min</label><br>
+                                                <input type="text" name="min" [(ngModel)]="critere.min" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Superficie max</label><br>
+                                                <input type="text" name="max" [(ngModel)]="critere.max" class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Type</label>
+                                                <select name="type" [(ngModel)]="critere.type" class="form-control">
+                                                    <option value="">Tout</option>
+                                                    <option value="2">Privée</option>
+                                                    <option value="1">Société</option>
+                                                    <option value="3">A vendre</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <input type="submit" class="btn btn-primary" (click)="advancedSearch()" value="Rechercher"/>
+                                            </div>
+                                        </div>
+                                    </div>
+                            <!-- </form> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+ <!-- ***** Header Area Start ***** -->
+<header class="header-area">
+    <!-- Main Header Start -->
+    <div class="main-header-area">
+        <div class="classy-nav-container breakpoint-off">
+            <!-- Classy Menu -->
+            <nav class="classy-navbar justify-content-between" id="uzaNav">
+
+                <!-- Logo -->
+                <a class="nav-brand" href="index.html"><img src="assets/img/logo.png" alt="" width="125px"></a>
+
+                <!-- Navbar Toggler -->
+                <div class="classy-navbar-toggler">
+                    <span class="navbarToggler"><span></span><span></span><span></span></span>
+                </div>
+
+                <!-- Menu -->
+                <div class="classy-menu">
+                    <!-- Menu Close Button -->
+                    <div class="classycloseIcon">
+                        <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                    </div>
+
+                    <!-- Nav Start -->
+                    <div class="classynav">
+                        <ul id="nav">
+                            <li class="current-item"><a href="/accueil">Accueil</a></li>
+                        </ul>
+                        <!-- Login / Register -->
+                            <div class="login-register-btn mx-3">
+                                <a href="/carte">Application</a>
+                            </div>
+                            <!-- <div class="login-register-btn mx-3">
+                                <a href="/logout"><img [src]="img" style="width: 25px;height: 25px;margin-right:5px;margin-bottom:5px;" /><span> {{logout}}</span></a>
+                            </div>  -->
+                            <div class="login-register-btn mx-3">
+                                <a href="/login">Se connecter<span>/ S'inscrire</span></a>
+                            </div>
+                        <!-- Search Icon -->
+                        <div class="search-icon" data-toggle="modal" data-target="#searchModal">
+                            <i class="icon_search"></i>
+                        </div>
+                    </div>
+                    <!-- Nav End -->
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<!-- ***** Header Area End ***** -->
+
+<section class="welcome-area">
+    <div class="">
+
+        <!-- Single Welcome Slide -->
+        <div class="single-welcome-slide">
+            <!-- Background Curve -->
+            <div class="background-curve" style="padding-top: 9%">
+                <img src="assets/img/bg-img/tot2.png" alt="">
+            </div>
+
+            <!-- Welcome Content -->
+            <div class="welcome-content h-100">
+                <div class="container h-100">
+                    <div class="row h-100 align-items-center">
+                        <!-- Welcome Text -->
+                        <div class="col-12 col-md-6">
+                            <div class="welcome-text">
+                                <h2 data-animation="fadeInUp" data-delay="100ms"><span style="font-family:serif;font-style: italic;font-size:47px"><span style="color:black">M</span><span style="color:#1583e9;font-size:45px">4</span><span style="color:black">M</span></span><strong style="font-size:50px"> un système de numérisation des <br> <span> Terres à Madagascar </span></strong></h2>
+                                <h5 data-animation="fadeInUp" data-delay="400ms" >Plus aucun déplacement, tout ce fait par des clics</h5>
+                                <a href="/login" class="btn uza-btn btn-2" data-animation="fadeInUp" data-delay="700ms">Commencer</a>
+                            </div>
+                        </div>
+                        <!-- Welcome Thumbnail -->
+                        <div class="col-12 col-md-6">
+                            <!--<div class="welcome-thumbnail">-->
+                                <!--<img src="assets/img/bg-img/tot.png" alt="" data-animation="slideInRight" data-delay="400ms">-->
+                            <!--</div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ***** Welcome Area End ***** -->
+    <div class="container">
+      <div class="container-fluid">
+          <h1 style="text-align: center">Résultats</h1>
+        <table class="table table-stripped">
+          <thead>
+            <tr>
+              <th>Titre</th>
+              <th>NomPropriete</th>
+              <th>Proprietaire</th>
+              <th>Superficie</th>
+              <th>Lieu</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of results.object">
+              <td>{{item.titre}}</td>
+              <td>{{item.nompropriete}}</td>
+              <td>{{item.proprietaire}}</td>
+              <td>{{item.superficie}}</td>
+              <td>{{item.lieuTerrain}}</td>
+              <td>{{item.descriptionTerrain}}</td>
+              <td>
+                <a [routerLink]="['/carte',item.idTerrain]" routerLinkActive="router-link-active"   routerDirection="forward">
+                  voir sur la carte
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>

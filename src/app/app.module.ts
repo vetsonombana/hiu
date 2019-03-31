@@ -13,7 +13,8 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
 import { InscriptionComponent } from './inscription/inscription.component';
 import { Inscription_Ws } from './services/Inscription_Ws';
-
+import { ResultComponent } from './result/result.component';
+import { NgxLoadingModule } from 'ngx-loading';
 
 @NgModule({
   declarations: [
@@ -24,13 +25,15 @@ import { Inscription_Ws } from './services/Inscription_Ws';
     DetailsComponent,
     LogoutComponent,
     InscriptionComponent,
+    ResultComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxLoadingModule.forRoot({})
   ],
   providers: [ Login_ws,Inscription_Ws ],
   bootstrap: [AppComponent]

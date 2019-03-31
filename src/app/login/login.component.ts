@@ -8,8 +8,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public msg : string;
   
+  public msg : string;
+  public loading : boolean = false ;
+
   constructor(private  login : Login_ws ,private router : Router) { }
 
   ngOnInit() {
@@ -17,12 +19,17 @@ export class LoginComponent implements OnInit {
   }
   
   public connecter (user : any) : void{
+    this.loading = true ;
       this.login.connecter(user.email,user.password).then(response => { 
         this.msg = response.message;
         if(response.status != "false"){
-          localStorage.setItem("logsession", user.id);
+          localStorage.setItem("logsession", user.email);
+          this.loading=false ;
           this.router.navigateByUrl('/carte');
          }
+      },
+      error =>{
+        this.loading = false ;
       }
     );
   }
