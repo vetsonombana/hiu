@@ -35,4 +35,8 @@ export class ResultComponent implements OnInit {
       console.log("resss"+this.results.object);
     })
   }
+  public advancedSearch (){
+    //passer na makany amle componentnle result le critere 
+    this.router.navigateByUrl('/result/'+this.critere.lieu+'/'+this.critere.min+'/'+this.critere.max+'/'+this.critere.type);
+  }
 }

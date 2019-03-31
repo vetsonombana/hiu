@@ -291,7 +291,7 @@ export class CarteComponent implements OnInit {
        this.montrerFormulaire = true ; 
      }
 
-     advancedSearch(){
+     public advancedSearch (){
       //passer na makany amle componentnle result le critere 
       this.router.navigateByUrl('/result/'+this.critere.lieu+'/'+this.critere.min+'/'+this.critere.max+'/'+this.critere.type);
     }
