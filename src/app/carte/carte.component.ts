@@ -76,7 +76,7 @@ export class CarteComponent implements OnInit {
 
    }
 
-   sendData(){
+   public sendData(){
      this.coordonnee = this.coordonnee.substring(0,this.coordonnee.length-1);
      
      let data = {
